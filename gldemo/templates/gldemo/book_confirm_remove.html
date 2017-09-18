@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block custom_style %}
+    <style type="text/css">
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete the book "{{ object.name }}"?</p>
+    <input class="btn btn-primary" type="submit" value="Sure" />
+</form>
+{% endblock %}

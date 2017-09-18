@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+     <a class="btn btn-primary my-4" href="{% url "add_book" %}">Add Book</a>
+    <br />
+    {% for book in books %}
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-4">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0 img-thumbnail" style="width: 300px; height: 500px;" src="{{ book.book_cover_image.url }}" alt="">
+          </a>
+        </div>
+        <div class="col-md-8">
+            <h3>{{ book.name }}</h3>
+            <i><h5>Author:  {{ book.author }}</h5>
+            <h6>Published: {{ book.date_published }}</h6></i>
+
+          <p>{{ book.description }}</p>
+          <a class="btn btn-primary" href="{{ book.book_url }}">See details</a>
+            <a class="btn btn-primary" href="{% url "edit_book" book.pk %}">Edit</a>
+            <a class="btn btn-danger" href="{% url "remove_book" book.pk %}">Remove</a>
+        </div>
+      </div>
+      <!-- /.row -->
+        <hr />
+    {% endfor %}
+    <br />
+    {% bootstrap_pagination books %}
+{% endblock %}

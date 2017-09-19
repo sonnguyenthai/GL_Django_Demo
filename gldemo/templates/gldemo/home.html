@@ -17,7 +17,7 @@
             <h6>Published: {{ book.date_published }}</h6></i>
 
           <p>{{ book.description }}</p>
-          <a class="btn btn-primary" href="{{ book.book_url }}">See details</a>
+{#          <a class="btn btn-primary" href="{{ book.book_url }}">See details</a>#}
             <a class="btn btn-primary" href="{% url "edit_book" book.pk %}">Edit</a>
             <a class="btn btn-danger" href="{% url "remove_book" book.pk %}">Remove</a>
         </div>

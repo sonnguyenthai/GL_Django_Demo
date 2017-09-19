@@ -9,7 +9,7 @@ class BookRemove(DeleteView):
     model = Book
     success_url = reverse_lazy('home')
     template_name = "gldemo/book_confirm_remove.html"
-    success_message = "The book %(book_name)s was updated successfully"
+    success_message = 'The book "%(book_name)s" was removed successfully!'
 
     def delete(self, request, *args, **kwargs):
         response = super(BookRemove, self).delete(request, *args, **kwargs)
